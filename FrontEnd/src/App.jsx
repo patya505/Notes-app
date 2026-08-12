@@ -7,7 +7,7 @@ function App() {
   const [editNote, setEditNote] = useState(null)
 
   function fetchNotes() {
-    axios.get("http://localhost:3000/api/notes/")
+    axios.get("https://notes-app-hjpx.onrender.com/api/notes/")
       .then((res) => {
         setNotes(res.data.notes)
       })
@@ -23,7 +23,7 @@ function App() {
 
     const { title, description } = e.target.elements
 
-    axios.post("http://localhost:3000/api/notes/", {
+    axios.post("https://notes-app-hjpx.onrender.com/api/notes/", {
       title: title.value,
       description: description.value
     })
@@ -37,7 +37,7 @@ function App() {
   // DELETE
   function handelDeleteNote(noteID) {
 
-    axios.delete("http://localhost:3000/api/notes/" + noteID)
+    axios.delete("https://notes-app-hjpx.onrender.com/api/notes/" + noteID)
       .then((res) => {
         console.log(res.data)
         fetchNotes()
@@ -57,7 +57,7 @@ function App() {
     const { title, description } = e.target.elements
 
     axios.patch(
-      "http://localhost:3000/api/notes/" + editNote._id,
+      "https://notes-app-hjpx.onrender.com/api/notes/" + editNote._id,
       {
         title: title.value,
         description: description.value
